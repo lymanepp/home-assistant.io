@@ -27,6 +27,7 @@ compensation:
     source: media_player.yamaha_receiver
     attribute: volume_level
     unit_of_measurement: dB
+    hide_source: true
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
@@ -59,8 +60,17 @@ precision:
   required: false
   default: 2
   type: integer
-unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+device_class:
+  description: Defines the device_class of the sensor, if any. By default, the unit of measurement from the source will be used (except when `attribute` is specified). A list of device classes is available in the [sensors integration](/integrations/sensor).
   required: false
   type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any. By default, the unit of measurement from the source will be used (except when `attribute` is specified).
+  required: false
+  type: string
+hide_source:
+  description: Hide the source entity in Home Assistant. If specified with `attribute`, it will hide the `source` entity as attributes cannot be hidden individually.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
